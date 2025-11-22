@@ -3,6 +3,7 @@
 #include <math.h>
 
 int main() {
+
     int luachon;
     do {
         printf("\n\n++================================++\n");
@@ -73,32 +74,26 @@ int main() {
                 break;
             case 3:
                 printf("\n--- CHUC NANG 3: KIEM TRA SO CHINH PHUONG ---\n");
-                int x;
-                bool is_chinh_phuong = false; 
-                
-                printf("Nhap so nguyen duong x: ");
-                if (scanf("%d", &x) != 1 || x < 0) {
-                    printf("Loi nhap du lieu. Vui long nhap mot so nguyen khong am.\n");
+                int a;
+                printf("Nhap so nguyen duong a: ");
+                if (scanf("%d", &a) != 1 || a < 0) {
+                    printf("Du lieu nhap khong hop le. Vui long nhap mot so nguyen khong am.\n");
+                    return 1;
                 }
 
-                if (x == 0) {
-                    is_chinh_phuong = true;
+                if (a == 0) {
+                    printf("%d LA so chinh phuong.\n", a);
                 } else {
-                    // Hướng dẫn: Chay vong lap bien dem i = 1, dieu kien lap i*i <= x
-                    // Su dung long long i de tranh tran so (overflow) khi i*i
-                    for (long long i = 1; i * i <= x; i++) {
-                        if (i * i == x) {
-                            is_chinh_phuong = true;
-                            break;
-                        }
+                    double can_bac_hai_thuc = sqrt(a);
+                    long long can_bac_hai_nguyen = round(can_bac_hai_thuc);
+
+                    if (can_bac_hai_nguyen * can_bac_hai_nguyen == a) {
+                        printf("%d LA so chinh phuong.\n", a);
+                    } else {
+                        printf("%d KHONG phai la so chinh phuong.\n", a);
                     }
                 }
-                
-                if (is_chinh_phuong) {
-                    printf("%d LA so chinh phuong.\n", x);
-                } else {
-                    printf("%d KHONG phai la so chinh phuong.\n", x);
-                }
+
                 break;
             case 4:
                 printf("\n>>> Thoat khoi chuong trinh. Tam biet! <<<\n");
